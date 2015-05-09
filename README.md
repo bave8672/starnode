@@ -52,14 +52,14 @@ var myStarnode = new starnode({DOM element});
 It can be useful to create starnodes from the document and body elements, as they can be used as roots to access all other nodes:
 
 ```javascript
-var doc = new starnode({document});
-	body = new starnode({document.body});
+var doc = new starnode({document}); // document starnode
+	body = new starnode({document.body}); // body starnode
 ```
 
 Use the starnode.get() function with one of the root elements to select a specific node using a query:
 
 ```javascript
-var title = body.get('h1#title');
+var title = body.get('h1#title'); // returns the first node within the body element that matches h1#title, as a starnode.
 ```
 
 ### Adding and inserting starnodes
@@ -74,5 +74,20 @@ var nav = body.add({elem: 'nav', text: 'this is a navbar', attr: {id 'navbar'}})
 container.add({elem: 'p', text: 'Here is some extra content for our container.'});
 ```
 
+You can create a free starnode using the .create() method, and add it the DOM later using the .add(), .addTo(), .insertBefore() or insertAfter() methods:
 
+```javascript
+// create link nodes but don't add them to the DOM yet:
+var google = new starnode({elem: 'a', text: 'google.com', attr: {href: 'http://www.google.com'}});
+	microsoft = new starnode({elem: 'a', text: 'microsoft.com', attr: {href: 'http://www.microsoft.com'}});
+	yahoo = new starnode({elem: 'a', text: 'yahoo.com', attr: {href: 'http://www.yahoo.com'}});
+
+body.add(google); // google link is now a child of the body element
+microsoft.addTo(body); // Has the same effect. microsoft is now a child of the body node
+yahoo.insertAfter(google); // The yahoo link is inserted after google and before microsoft
+```
+
+### Searching the DOM
+
+Query the dom using 
 
