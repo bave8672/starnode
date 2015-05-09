@@ -19,7 +19,7 @@ Include the following line at the bottom of your <body> tag, after any main cont
 </html>
 ```
 
-If you like, you can even start from just a <script> tag by calling:
+If you like, you can even start from just a script tag by calling:
 
 ```javascript
 new starnode().init();
