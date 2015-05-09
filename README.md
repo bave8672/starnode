@@ -1,4 +1,4 @@
-# starnode
+# starnode.js
 
 This simple library transforms your humble DOM elements into starnodes, which contain methods that make it possible to generate entire webpages, complete with styles and responsive features, all from within javascript.
 
@@ -37,7 +37,7 @@ Warning: use with caution. This feature is experimental and only appears to work
 
 ## Usage
 
-### starnodes
+### About starnodes
 
 This library defines the starnode object, which aims to build upon the functionality of a regular DOM element. Each starnode can be bound to a real DOM node, which is accessible through starnode.node, allowing you to keep using all of the traditional node operations. However, the starnode object contains additional functions for adding, modifying and deleting DOM elements that traditional nodes do not have, as well a few useful jQuery-style methods for searching and traversing them, among other things.
 
