@@ -31,7 +31,7 @@ setTimeout(function() {
 }, 0);
 ```
 
-This will generate a new document element along with empty <head> and <body> tags. Any code that runs immediately afterwards must be placed inside a timeout funcnction as the page loads asynchronously.
+This will generate a new document element along with empty <head> and <body> tags. Any code that runs immediately afterwards must be placed inside a timeout function as the page loads asynchronously.
 
 Warning: use with caution. This feature is experimental and only appears to work in Chrome.
 
@@ -39,7 +39,7 @@ Warning: use with caution. This feature is experimental and only appears to work
 
 ### About starnodes
 
-This library defines the starnode object, which aims to build upon the functionality of a regular DOM element. Each starnode can be bound to a real DOM node, which is accessible through starnode.node, allowing you to keep using all of the traditional node operations. However, the starnode object contains additional functions for adding, modifying and deleting DOM elements that traditional nodes do not have, as well a few useful jQuery-style methods for searching and traversing them, among other things.
+This library defines the starnode object, which aims to build upon the functionality of a regular DOM element. Each starnode can be bound to a real DOM node, which is accessible through starnode.node, allowing you to keep using all of the traditional node operations. However, the starnode object contains additional functions for adding, modifying and deleting DOM elements that traditional nodes do not have, as well a few useful jQuery-style methods for searching and traversing them.
 
 ### Creating starnodes from existing nodes
 
@@ -87,7 +87,97 @@ microsoft.addTo(body); // Has the same effect. microsoft is now a child of the b
 yahoo.insertAfter(google); // The yahoo link is inserted after google and before microsoft
 ```
 
+### Delete elements
+
+```javascript
+foo.delete() // removes 'foo' and all child elements from the DOM
+
+bar.prune() // removes all child elements of 'bar'
+```
+
 ### Searching the DOM
 
-Query the dom using 
+Use the starnode.get() and .getAll() methods, which bahave like the standard query() and queryAll():
+
+```javascript
+foo.get('#bar'); 
+// returns the first child element of 'foo' with id 'bar' as a starnode
+
+bar.getAll('.baz'); 
+// returns a starnode array containing all the child elements of 'bar' with class='baz'.
+
+```
+
+### Templating
+
+
+
+### Adding Styles
+
+You can style a whole document in one command without CSS, using .style().
+
+```javascript
+// define style rules in a JSON object as so:
+var myStylesheet = {
+
+	'.foo': {
+		'color': 'red',
+		'font-size': '2.5rem'
+	},
+
+	'#bar': {
+		'background-color': 'blue',
+		'text-decoration': 'underlined'
+	}
+
+};
+
+new supernode(document).style(myStylesheet); 
+// Adds style rules in myStylesheet to the corresponding elements in the document
+```
+
+### Adding event listeners
+
+```javascript
+foo.listen('click', function() {
+	console.log('You just clicked foo');
+});
+// Adds event listener to foo's associated node
+
+bar.addListeners('.baz', 'mouseover', function(event) {
+	event.target.style[color] = 'purple';
+});
+// Binds event listeners to all child elements of bar with class=baz
+```
+
+### Templating
+
+Because starnodes are javascript objects, defining templates and mixins is as easy as extending their prototype:
+
+```javascript
+// define a template method on all starnodes:
+starnode.prototype.addBlogpost = function(title, author, text) {
+	var container = this.add({elem: 'article'});
+	container.add({elem: 'h1', text: title});
+	container.add({elem: 'h2', text: author});
+	container.add({elem: 'p', text: text});
+}
+
+var body = new starnode(document.body);
+body.addBlogpost('Hello World', 'Wendy Example', 'Lorem ipsum dolor sit amet...');
+// Adds a new blog post to the body element with the specified arguments.
+
+### Miscellaneous
+
+Starnodes also have a native .toggle() method to hide or display their element dynamically; it works in the same way as the jQuery toggle().
+
+## Demo
+
+Check out a demo page [here](http://www.baves.net/starnode).
+
+If you are having trouble, the [full code](/release/starnode.js) has detailed comments on the usage of each function.
+
+## Credits
+
+You can se more of my projects at [baves.net](http://www.baves.net).
 

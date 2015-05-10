@@ -12,8 +12,8 @@ var filter = body.add({elem: 'div', attr: {class: 'filter'}});
 
 var nav = body.add({elem: 'nav', attr: {class: 'content'}});
 nav.navlink('GitHub', 'https://github.com/bave8672/starnode');
-nav.navlink('Docs', 'http://www.google.com');
-nav.navlink('More Projects', 'http://www.baves.net');
+nav.navlink('Source', 'https://github.com/bave8672/starnode/release/demo');
+nav.navlink('Other Projects', 'http://www.baves.net');
 
 var initial = body.add({elem: 'div', attr: {class: 'initial'}});
 var jumbo = initial.add({elem: 'div', text: 'starnode.js', attr: {class: 'jumbo'}});
@@ -22,7 +22,6 @@ jumbo.listen('mouseover', function(e) {
 });
 jumbo.listen('mouseleave', function(e) {
 	event.target.style['text-shadow'] = '0 0 4px white';
-	console.log('test');
 });
 
 var article = body.add({elem: 'div', attr: {class: 'article'}});
