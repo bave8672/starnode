@@ -4,7 +4,7 @@ This simple library transforms your humble DOM elements into starnodes, which co
 
 ## Get Started
 
-Include the following line at the bottom of your <body> tag, after any main content and before any other references to scripts that require starnode:
+Include the following line at the bottom of your body tag, after any main content and before any other references to scripts that require starnode:
 
 ```
 <html>
@@ -52,8 +52,8 @@ var myStarnode = new starnode({DOM element});
 It can be useful to create starnodes from the document and body elements, as they can be used as roots to access all other nodes:
 
 ```javascript
-var doc = new starnode({document}); // document starnode
-	body = new starnode({document.body}); // body starnode
+var doc = new starnode(document); // document starnode
+	body = new starnode(document.body); // body starnode
 ```
 
 Use the starnode.get() function with one of the root elements to select a specific node using a query:
