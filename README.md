@@ -108,9 +108,23 @@ bar.getAll('.baz');
 
 ```
 
-### Templating
+### Templates and mixins
 
+Because starnodes are javascript objects, defining templates and mixins is as easy as extending the prototype:
 
+```javascript
+// define a template method on all starnodes:
+starnode.prototype.addBlogpost = function(title, author, text) {
+	var container = this.add({elem: 'article'});
+	container.add({elem: 'h1', text: title});
+	container.add({elem: 'h2', text: author});
+	container.add({elem: 'p', text: text});
+}
+
+var body = new starnode(document.body);
+body.addBlogpost('Hello World', 'Wendy Example', 'Lorem ipsum dolor sit amet...');
+// Adds a new blog post to the body element with the specified arguments.
+```
 
 ### Adding Styles
 
@@ -149,23 +163,6 @@ bar.addListeners('.baz', 'mouseover', function(event) {
 });
 // Binds event listeners to all child elements of bar with class=baz
 ```
-
-### Templating
-
-Because starnodes are javascript objects, defining templates and mixins is as easy as extending their prototype:
-
-```javascript
-// define a template method on all starnodes:
-starnode.prototype.addBlogpost = function(title, author, text) {
-	var container = this.add({elem: 'article'});
-	container.add({elem: 'h1', text: title});
-	container.add({elem: 'h2', text: author});
-	container.add({elem: 'p', text: text});
-}
-
-var body = new starnode(document.body);
-body.addBlogpost('Hello World', 'Wendy Example', 'Lorem ipsum dolor sit amet...');
-// Adds a new blog post to the body element with the specified arguments.
 
 ### Miscellaneous
 
