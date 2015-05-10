@@ -12,7 +12,7 @@ var filter = body.add({elem: 'div', attr: {class: 'filter'}});
 
 var nav = body.add({elem: 'nav', attr: {class: 'content'}});
 nav.navlink('GitHub', 'https://github.com/bave8672/starnode');
-nav.navlink('Source', 'https://github.com/bave8672/starnode/release/demo');
+nav.navlink('Source', 'https://github.com/bave8672/starnode/tree/master/release/demo');
 nav.navlink('Other Projects', 'http://www.baves.net');
 
 var initial = body.add({elem: 'div', attr: {class: 'initial'}});
