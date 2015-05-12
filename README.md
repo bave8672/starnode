@@ -67,7 +67,7 @@ var title = body.get('h1#title'); // returns the first node within the body elem
 You can add children to any starnode using starnode.add() as follows:
 
 ```javascript
-var nav = body.add({elem: 'nav', text: 'this is a navbar', attr: {id 'navbar'}}); // returns a starnode object
+var nav = body.add({elem: 'nav', text: 'this is a navbar', attr: {id: 'navbar'}}); // returns a starnode object
 	container = body.add({elem: 'div', text: 'This is a container', attr: {class: 'container'}});
 	footer = body.add({elem: 'footer', text: 'this is a footer', attr: {id: 'footer'}});
 
@@ -100,7 +100,7 @@ bar.prune() // removes all child elements of 'bar'
 Use the starnode.get() and .getAll() methods, which bahave like the standard query() and queryAll():
 
 ```javascript
-foo.get('#bar'); 
+fvar bar = foo.get('#bar'); 
 // returns the first child element of 'foo' with id 'bar' as a starnode
 
 bar.getAll('.baz'); 
@@ -146,7 +146,7 @@ var myStylesheet = {
 
 };
 
-new supernode(document).style(myStylesheet); 
+new starnode(document).style(myStylesheet); 
 // Adds style rules in myStylesheet to the corresponding elements in the document
 ```
 
@@ -176,5 +176,5 @@ If you are having trouble, the [full code](/release/starnode.js) has detailed co
 
 ## Credits
 
-You can se more of my projects at [baves.net](http://www.baves.net).
+You can see more of my projects at [baves.net](http://www.baves.net).
 
